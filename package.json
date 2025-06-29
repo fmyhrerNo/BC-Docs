@@ -1,0 +1,124 @@
+{
+  "name": "myhrer-bc-docs",
+  "displayName": "Myhrer BC Docs",
+  "publisher": "Myhrernet",
+  "description": "This extenion makes the life as a documentation writer more easy. this extension adds functions to setup and create and update DocFX files.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.101.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "myhrer-bc-docs.MYH-CreateDocFX-files",
+        "title": "MYH: Create and Update DocFX files"
+      },
+      {
+        "command": "myhrer-bc-docs.MYH-CreateDocFxGithubWorkflow",
+        "title": "MYH: Create DocFX Github Workflow"
+      },
+      {
+        "command": "myhrer-bc-docs.MYH-CreateAndUpdateDocFxTocAndIndexFiles",
+        "title": "MYH: Create And Update DocFX Toc And Index files"
+      },
+      {
+        "command": "myhrer-bc-docs.MYH-CreateAndOverwriteDocFx.json",
+        "title": "MYH: Create And Overwrite DocFX.json"
+      },
+      {
+        "command": "myhrer-bc-docs.MYH-InitRepositoryForUseWithDocFX",
+        "title": "MYH: Initilize Repository For Use With DocFX"
+      }
+    ],
+    "configuration": {
+      "title": "MYH BC docs Settings",
+      "type": "object",
+      "properties": {
+        "myhrer-bc-docs.CreatePDF": {
+          "type": "boolean",
+          "default": true,
+          "description": "Create PDF"
+        },
+        "myhrer-bc-docs.MediaFolder": {
+          "type": "string",
+          "default": "media",
+          "description": "the name of the folder for resource images"
+        },
+        "myhrer-bc-docs.LogoFileName": {
+          "type": "string",
+          "default": "logo.svg",
+          "description": "the name of the logo file in the image resource folder"
+        },
+        "myhrer-bc-docs.DocFXOutputFolder": {
+          "type": "string",
+          "default": "_site",
+          "description": "The name of the outputfolder for DocFX to write files to"
+        },
+        "myhrer-bc-docs.CreteTableOfContents": {
+          "type": "boolean",
+          "default": true,
+          "description": "Create table of contents in beginning of the PDF document."
+        },
+        "myhrer-bc-docs.CreatePDFCoverPage": {
+          "type": "boolean",
+          "default": true,
+          "description": "Create coverpage on the first page of the PDF."
+        },
+        "myhrer-bc-docs.CoverPageFileName": {
+          "type": "string",
+          "default": "cover.md",
+          "description": "The name of the cover page template file"
+        },
+        "myhrer-bc-docs.UseFolderAsPdfFilename": {
+          "type": "boolean",
+          "default": true,
+          "description": "Will use the folder as filename for the PDF."
+        },
+        "myhrer-bc-docs.CreatePdfHeader": {
+          "type": "boolean",
+          "default": true,
+          "description": "Create header text in the PDF."
+        },
+        "myhrer-bc-docs.CreatePdfHeaderTemplateText": {
+          "type": "string",
+          "default": "Header.txt",
+          "description": "File that containes the header template data."
+        },
+        "myhrer-bc-docs.CreatePdfFooter": {
+          "type": "boolean",
+          "default": true,
+          "description": "Create footer text in the PDF."
+        },
+        "myhrer-bc-docs.CreatePdfFooterTemplateText": {
+          "type": "string",
+          "default": "Footer.txt",
+          "description": "File that containes the footer template data."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.101.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.31.1",
+    "@typescript-eslint/parser": "^8.31.1",
+    "eslint": "^9.25.1",
+    "typescript": "^5.8.3",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
