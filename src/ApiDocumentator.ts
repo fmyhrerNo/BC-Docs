@@ -166,18 +166,18 @@ export function CreateAPIDocumentation() : string {
 function CreateTableHeader(col1 : number, col2 : number, col3 : number) : string {
 	var TableHeader = `## Fields
 The following fields are exposed through the API:\n\n`;
-	var coloumnName = "| Field Name ";
-	TableHeader = coloumnName.padEnd(col1,' ');
-	coloumnName = "| Source Field  ";
-	TableHeader += coloumnName.padEnd(col2,' ');
-	coloumnName = "| Caption ";
-	TableHeader += coloumnName.padEnd(col3,' ') +'|\n';
-	var coloumnName = "|----------";
-	TableHeader += coloumnName.padEnd(col1,'-');
-	coloumnName = "|----------";;
-	TableHeader += coloumnName.padEnd(col2,'-');
-	coloumnName = "|----------";;
-	TableHeader += coloumnName.padEnd(col3,'-') +'|\n';
+	var columnName = "| Field Name ";
+	TableHeader = columnName.padEnd(col1,' ');
+	columnName = "| Source Field  ";
+	TableHeader += columnName.padEnd(col2,' ');
+	columnName = "| Caption ";
+	TableHeader += columnName.padEnd(col3,' ') +'|\n';
+	var columnName = "|----------";
+	TableHeader += columnName.padEnd(col1,'-');
+	columnName = "|----------";;
+	TableHeader += columnName.padEnd(col2,'-');
+	columnName = "|----------";;
+	TableHeader += columnName.padEnd(col3,'-') +'|\n';
 
 	return TableHeader;
 }

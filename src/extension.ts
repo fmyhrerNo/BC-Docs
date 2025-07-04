@@ -40,7 +40,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 	const disposable5 = vscode.commands.registerCommand('myhrer-bc-docs.MYH-InitRepositoryForUseWithDocFX', () => {
 		InitRepositoryForDocFX();
-		vscode.window.showInformationMessage('Initilized the repo for use with DocFX');
+		vscode.window.showInformationMessage('Initialized the repo for use with DocFX');
 	});
 
 	const disposable6 = vscode.commands.registerCommand('myhrer-bc-docs.MYH-SetupAndCreateCoverPage', () => {
@@ -51,9 +51,9 @@ export function activate(context: vscode.ExtensionContext) {
 		SetupAndCreatePDFHeaderAndFooter();
 	});
 
-	const disposable8 = vscode.commands.registerCommand('myhrer-bc-docs.MYH-CreateApiDopcumentation', () => {
+	const disposable8 = vscode.commands.registerCommand('myhrer-bc-docs.MYH-CreateApiDocumentation', () => {
 		const filename = CreateAPIDocumentation();
-		vscode.window.showInformationMessage('Creted API Documentation for ' + filename);
+		vscode.window.showInformationMessage('Created API Documentation for ' + filename);
 	});
 
 	context.subscriptions.push(disposable);
