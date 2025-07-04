@@ -28,10 +28,10 @@
       },
       {
         "command": "myhrer-bc-docs.MYH-InitRepositoryForUseWithDocFX",
-        "title": "MYH: Initilize Repository For Use With DocFX"
+        "title": "MYH: Initialize Repository For Use With DocFX"
       },
       {
-        "command": "myhrer-bc-docs.MYH-CreateApiDopcumentation",
+        "command": "myhrer-bc-docs.MYH-CreateApiDocumentation",
         "title": "MYH: Create API documentation for the active document"
       },
       {
@@ -59,8 +59,8 @@
       "editor/context": [
         {
           "when": "resourceExtname == .al",
-          "command": "myhrer-bc-docs.MYH-CreateApiDopcumentation",
-          "alt": "myhrer-bc-docs.MYH-CreateApiDopcumentation",
+          "command": "myhrer-bc-docs.MYH-CreateApiDocumentation",
+          "alt": "myhrer-bc-docs.MYH-CreateApiDocumentation",
           "group": "1_modification"
         }
       ]
@@ -97,7 +97,7 @@
         "myhrer-bc-docs.CreatePDFCoverPage": {
           "type": "boolean",
           "default": true,
-          "description": "Create coverpage on the first page of the PDF."
+          "description": "Create cover page on the first page of the PDF."
         },
         "myhrer-bc-docs.CoverPageFileName": {
           "type": "string",
@@ -117,7 +117,7 @@
         "myhrer-bc-docs.CreatePdfHeaderTemplateText": {
           "type": "string",
           "default": "Header.txt",
-          "description": "File that containes the header template data."
+          "description": "File that contains the header template data."
         },
         "myhrer-bc-docs.CreatePdfFooter": {
           "type": "boolean",
@@ -127,7 +127,7 @@
         "myhrer-bc-docs.CreatePdfFooterTemplateText": {
           "type": "string",
           "default": "Footer.txt",
-          "description": "File that containes the footer template data."
+          "description": "File that contains the footer template data."
         },
         "myhrer-bc-docs.PDFSettingsFolder": {
           "type": "string",

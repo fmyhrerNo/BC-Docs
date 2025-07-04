@@ -1,7 +1,7 @@
 # Myhrer BC Docs
 
 This extension is intended to be a helper for the documentation part. It will initialize the repo for use with DocFX.And it creates a workflow for Github so it will be rebuilt after each pull request.
-functionality in this ext ension will help you manage the PDF settings too.
+functionality in this extension will help you manage the PDF settings too.
 
 ## File Functions
 - Create workflow for use in Github
@@ -18,7 +18,7 @@ Please visit https://www.myhrer.net/ for more in depth information and tips and 
 
 in the ctrl-shift-P it is added this commands:
 
-### MYH: Initilize Repository For Use With DocFX
+### MYH: Initialize Repository For Use With DocFX
     This command will initialize the repo for use and creates a docs folder in the root of the workspace folder.
 
 ### MYH: Create DocFX Github Workflow
@@ -58,7 +58,7 @@ in the ctrl-shift-P it is added this commands:
     This turns on and off the PDF creation.
 
 ### MediaFolder
-    This sets the name of the meda folder where you store the images used in the documentation.
+    This sets the name of the media folder where you store the images used in the documentation.
     Default is **media**
 
 ### LogoFileName
@@ -72,7 +72,7 @@ in the ctrl-shift-P it is added this commands:
     This will create table of contents (toc) in beginning of the PDF document.  
 
 ### CreatePDFCoverPage
-    This tuns on and off the fuctionality for having a coverpage on the automatic created PDFs.
+    This tuns on and off the functionality for having a cover page on the automatic created PDFs.
 
 ### CoverPageFileName
     Sets the filename of the cover page. Default is cover.md.
