@@ -1,9 +1,9 @@
 {
   "name": "myhrer-bc-docs",
-  "displayName": "Myhrer BC Docs",
+  "displayName": "MYH BC Docs",
   "publisher": "Myhrernet",
-  "description": "This extenion makes the life as a documentation writer more easy. this extension adds functions to setup and create and update DocFX files.",
-  "version": "0.0.1",
+  "description": "This extension makes the life as a documentation writer more easy. this extension adds functions to setup and create and update DocFX files.",
+  "version": "0.9.1",
   "engines": {
     "vscode": "^1.101.0"
   },
@@ -15,8 +15,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "myhrer-bc-docs.MYH-CreateDocFX-files",
-        "title": "MYH: Create and Update DocFX files"
+        "command": "myhrer-bc-docs.MYH-CreateAndUpdateAllDocFX-files",
+        "title": "MYH: Create and Update All DocFX files"
       },
       {
         "command": "myhrer-bc-docs.MYH-CreateDocFxGithubWorkflow",
@@ -27,14 +27,44 @@
         "title": "MYH: Create And Update DocFX Toc And Index files"
       },
       {
-        "command": "myhrer-bc-docs.MYH-CreateAndOverwriteDocFx.json",
-        "title": "MYH: Create And Overwrite DocFX.json"
-      },
-      {
         "command": "myhrer-bc-docs.MYH-InitRepositoryForUseWithDocFX",
         "title": "MYH: Initilize Repository For Use With DocFX"
+      },
+      {
+        "command": "myhrer-bc-docs.MYH-CreateApiDopcumentation",
+        "title": "MYH: Create API documentation for the active document"
+      },
+      {
+        "command": "myhrer-bc-docs.MYH-SetupAndCreateCoverPage",
+        "title": "MYH: Setup and create PDF cover page"
+      },
+      {
+        "command": "myhrer-bc-docs.MYH-SetupAndCreatePDFHeaderAndFooter",
+        "title": "MYH: Create PDF header and footer"
       }
     ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "myhrer-bc-docs.MYH-CreateAndUpdateAllDocFX-files",
+          "alt": "myhrer-bc-docs.MYH-CreateAndUpdateAllDocFX-files",
+          "group": "1_modification"
+        },
+                {
+          "command": "myhrer-bc-docs.MYH-CreateAndUpdateDocFxTocAndIndexFiles",
+          "alt": "myhrer-bc-docs.MYH-CreateAndUpdateDocFxTocAndIndexFiles",
+          "group": "1_modification"
+        }        
+      ],
+      "editor/context": [
+        {
+          "when": "resourceExtname == .al",
+          "command": "myhrer-bc-docs.MYH-CreateApiDopcumentation",
+          "alt": "myhrer-bc-docs.MYH-CreateApiDopcumentation",
+          "group": "1_modification"
+        }
+      ]
+    },
     "configuration": {
       "title": "MYH BC docs Settings",
       "type": "object",
@@ -98,6 +128,11 @@
           "type": "string",
           "default": "Footer.txt",
           "description": "File that containes the footer template data."
+        },
+        "myhrer-bc-docs.PDFSettingsFolder": {
+          "type": "string",
+          "default": "PDF Settings",
+          "description": "Folder Containing setup files for PDF converting."
         }
       }
     }
