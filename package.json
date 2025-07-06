@@ -3,7 +3,8 @@
   "displayName": "MYH BC Docs",
   "publisher": "Myhrernet",
   "description": "This extension makes the life as a documentation writer more easy. this extension adds functions to setup and create and update DocFX files.",
-  "version": "0.9.1",
+  "icon": "images/logoMP.png",
+  "version": "0.9.3",
   "engines": {
     "vscode": "^1.101.0"
   },
@@ -11,6 +12,10 @@
     "Other"
   ],
   "activationEvents": [],
+    "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fmyhrerNo/BC-Docs.git"
+  },
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
@@ -71,7 +76,7 @@
       "properties": {
         "myhrer-bc-docs.CreatePDF": {
           "type": "boolean",
-          "default": true,
+          "default": false,
           "description": "Create PDF"
         },
         "myhrer-bc-docs.MediaFolder": {
@@ -91,12 +96,12 @@
         },
         "myhrer-bc-docs.CreteTableOfContents": {
           "type": "boolean",
-          "default": true,
+          "default": false,
           "description": "Create table of contents in beginning of the PDF document."
         },
         "myhrer-bc-docs.CreatePDFCoverPage": {
           "type": "boolean",
-          "default": true,
+          "default": false,
           "description": "Create cover page on the first page of the PDF."
         },
         "myhrer-bc-docs.CoverPageFileName": {
@@ -106,12 +111,12 @@
         },
         "myhrer-bc-docs.UseFolderAsPdfFilename": {
           "type": "boolean",
-          "default": true,
+          "default": false,
           "description": "Will use the folder as filename for the PDF."
         },
         "myhrer-bc-docs.CreatePdfHeader": {
           "type": "boolean",
-          "default": true,
+          "default": false,
           "description": "Create header text in the PDF."
         },
         "myhrer-bc-docs.CreatePdfHeaderTemplateText": {
@@ -121,7 +126,7 @@
         },
         "myhrer-bc-docs.CreatePdfFooter": {
           "type": "boolean",
-          "default": true,
+          "default": false,
           "description": "Create footer text in the PDF."
         },
         "myhrer-bc-docs.CreatePdfFooterTemplateText": {
@@ -137,6 +142,7 @@
       }
     }
   },
+
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",

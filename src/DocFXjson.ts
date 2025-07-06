@@ -43,10 +43,11 @@ function CreateFolderContent(folder: string) : string {
     var first = true;
     let directories = getDirectories(folder);
     const Mediafolder = vscode.workspace.getConfiguration('myhrer-bc-docs').MediaFolder;
+    const PDFSettingsFolder = vscode.workspace.getConfiguration('myhrer-bc-docs').PDFSettingsFolder;
   
     if (directories.length > 0) {
             for (var dir of directories) {
-            if (dir !== Mediafolder) {	
+            if ((dir !== Mediafolder) && (dir !== PDFSettingsFolder)) {	
                 if (first === true)
                 {
                     folderDataJson = folderDataJson +"\t\t\t\"" +dir + "\/**.md\",\n" + "\t\t\t\t\t\t\"" + dir + "\/**/toc.yml\",\n";
