@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import { AppendToFile, checkFileExistsSync, CreateFolder, CreateIndexFile, CreateMainIndexFile, getDirectories, writefile } from './FileFunctions';
+
 export function ReadExistingTocFile(tocFilePath: string): string {
     const fs = require('fs');
     let content = '';
@@ -40,6 +41,7 @@ function ListDirectoriesFiles(folder: string ): string {
     var NewContent = '';
     let TocFile = folder + '/toc.yml';
     const Mediafolder = vscode.workspace.getConfiguration('myhrer-bc-docs').MediaFolder;
+    const PDFSettingsFolder = vscode.workspace.getConfiguration('myhrer-bc-docs').PDFSettingsFolder;
 
     if (checkFileExistsSync(TocFile) ){
         ExistingContent	= ReadExistingTocFile(TocFile);
@@ -48,7 +50,7 @@ function ListDirectoriesFiles(folder: string ): string {
     files.forEach((file: string) => {
         const stats = fs.statSync(folder + '/' + file);
         if (stats.isDirectory()) {
-            if (file !== Mediafolder)
+            if ((file !== Mediafolder) && (file !== PDFSettingsFolder))
             {
                 if (ExistingContent.indexOf(file) === -1) {
                     // folder is new, add it to the TOC
@@ -72,11 +74,12 @@ export function CreateMainTocFile(docFolder: string): void {
 export function CreateTocFiles(docFolder: string): void {
 	let directories = getDirectories(docFolder);
 	const Mediafolder = vscode.workspace.getConfiguration('myhrer-bc-docs').MediaFolder;
+    const PDFSettingsFolder = vscode.workspace.getConfiguration('myhrer-bc-docs').PDFSettingsFolder;
 
 	if (directories.length > 0) {
 		for (var dir of directories) {
 
-			if (dir !== Mediafolder) {
+			if ((dir !== Mediafolder) && (dir !== PDFSettingsFolder)) {
 				CreateIndexFile(docFolder, dir);
 				CreateTocFile(docFolder, dir);
 			}
