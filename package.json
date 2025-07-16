@@ -4,7 +4,7 @@
   "publisher": "Myhrernet",
   "description": "This extension makes the life as a documentation writer more easy. this extension adds functions to setup and create and update DocFX files.",
   "icon": "images/logoMP.png",
-  "version": "0.9.5",
+  "version": "0.9.6",
   "engines": {
     "vscode": "^1.101.0"
   },
@@ -152,6 +152,11 @@
           "type": "string",
           "default": "",
           "description": "File and path name for the image to copy from."
+        },
+        "myhrer-bc-docs.FavIconFile": {
+          "type": "string",
+          "default": "",
+          "description": "File and path name for the ico file to copy from."
         }
       }
     }
