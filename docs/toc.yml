@@ -1,5 +1,5 @@
 items:
-- name: index.md
+- name: BC-Docs
   href: index.md
 - name: GithubPages
   href: GithubPages\index.md
