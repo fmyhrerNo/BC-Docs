@@ -9,5 +9,4 @@ items:
   href: PdfSetup\index.md
 - name: Updating
   href: Updating\index.md
-- name: _site
-  href: _site\index.md
+
