@@ -2,6 +2,7 @@ import { writefile,getDirectories, CreateIndexFile, CreateFolder, CreateMainInde
 import * as vscode from 'vscode';
 import { GetPdfSettings } from "./PdfFunctions";
 import { CreateMainTocFile, CreateTocFiles } from "./TocFunctions";
+import { create } from "domain";
 
 export function CreateDoxFxJson () {
     let folder: string | undefined = undefined;
@@ -30,6 +31,8 @@ export function CreateDocFXFileFULL(folder: string): void {
     Content = Content.replace('{{RESOURCEFILES}}', ReplaceContent);
     ReplaceContent = CreateAppLogoPathTag();
     Content = Content.replace('{{APPLOGOPATH}}', ReplaceContent);
+    ReplaceContent = CreateFavIconPathTag();
+    Content = Content.replace('{{APPFAVICONPATH}}',ReplaceContent);
     ReplaceContent = GetPdfSettings(folder);
     Content = Content.replace('{{PDF}}', ReplaceContent);
     ReplaceContent = GetDocFXOutputFolder();
@@ -80,6 +83,11 @@ function CreateAppLogoPathTag() : string {
     return  `\"_appLogoPath\": \"${Mediafolder}\/${LogoFileName}.svg\",`;	
 }
 
+function CreateFavIconPathTag() : string {
+    const Mediafolder = vscode.workspace.getConfiguration('myhrer-bc-docs').MediaFolder;
+    return  `\"_appFaviconPath\": \"${Mediafolder}\/favicon.ico\",`;	
+}
+
 function GetDocFXOutputFolder() : string {
 	const DocFXOutputFolder = vscode.workspace.getConfiguration('myhrer-bc-docs').DocFXOutputFolder;
 	return DocFXOutputFolder;
@@ -111,6 +119,7 @@ function GetDocFxFileFull(): string {
       "keepFileLink": false,
       "globalMetadata": {
         {{APPLOGOPATH}}
+        {{APPFAVICONPATH}}
 		{{PDF}}
       },
       "disableGitFeatures": false
