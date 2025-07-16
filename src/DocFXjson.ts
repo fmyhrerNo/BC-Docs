@@ -26,7 +26,7 @@ export function CreateDocFXFileFULL(folder: string): void {
 
     ReplaceContent = CreateFolderContent(folder);
     Content = Content.replace('{{FILES}}', ReplaceContent);
-    ReplaceContent = CreateResorceFolderTag();
+    ReplaceContent = CreateResourceFolderTag();
     Content = Content.replace('{{RESOURCEFILES}}', ReplaceContent);
     ReplaceContent = CreateAppLogoPathTag();
     Content = Content.replace('{{APPLOGOPATH}}', ReplaceContent);
@@ -68,7 +68,7 @@ function CreateFolderContent(folder: string) : string {
     return folderDataJson;
 }
 
-function CreateResorceFolderTag(): string {
+function CreateResourceFolderTag(): string {
     const Mediafolder = vscode.workspace.getConfiguration('myhrer-bc-docs').MediaFolder;
     
     return `\"${Mediafolder}/**\"\n`;
@@ -77,7 +77,7 @@ function CreateResorceFolderTag(): string {
 function CreateAppLogoPathTag() : string {
     const Mediafolder = vscode.workspace.getConfiguration('myhrer-bc-docs').MediaFolder;
     const LogoFileName = vscode.workspace.getConfiguration('myhrer-bc-docs').LogoFileName;
-    return  `\"_appLogoPath\": \"${Mediafolder}\/${LogoFileName}\",`;	
+    return  `\"_appLogoPath\": \"${Mediafolder}\/${LogoFileName}.svg\",`;	
 }
 
 function GetDocFXOutputFolder() : string {

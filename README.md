@@ -96,3 +96,10 @@ in the ctrl-shift-P it is added this commands:
 ### PDFSettingsFolder
     This is the name used on the folder containing the PDF settings files like the header and footer text.
 
+### RightCornerLogoSVG
+    This is the path to your template logo to copy from. this must be an svg.
+
+### PDFCoverImagePNG
+    This is the path to your template logo to copy from. this must be an PNG 
+
+

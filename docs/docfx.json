@@ -1,0 +1,46 @@
+{
+    "build": {
+      "content": [
+        {
+          "files": [
+		  			"GithubPages/**.md",
+						"GithubPages/**/toc.yml",
+						"Initialize/**.md",
+						"Initialize/**/toc.yml",
+						"PdfSetup/**.md",
+						"PdfSetup/**/toc.yml",
+						"Updating/**.md",
+						"Updating/**/toc.yml",
+						"_site/**.md",
+						"_site/**/toc.yml",
+						"toc.yml",
+						"*.md"
+					]
+        }
+      ],
+      "resource": [
+        {
+          "files": [
+            "media/**"
+					]
+        }
+      ],
+      "output": "_site",
+      "globalMetadataFiles": [],
+      "fileMetadataFiles": [],
+      "template": [
+        "default",
+        "modern"
+      ],
+      "postProcessors": [],
+      "keepFileLink": false,
+      "globalMetadata": {
+        "_appLogoPath": "media/logo.svg",
+				"pdfCoverPage": "cover.html",
+				"pdfHeaderTemplate": "<div style=\"width: 100%; font-size: 22px;\"><div style=\"text-align: center; padding: 0 2em\"<p>BC Docs sample page header</p></div></div>",
+				"pdfFooterTemplate": "<div style=\"width: 100%; font-size: 12px;\"><div style=\"text-align: center; padding: 0 2em\"<p>BC Docs sample page footer</p><span class=\"pageNumber\"></span> / <span class=\"totalPages\"></span></div></div>",
+				"pdf": true
+      },
+      "disableGitFeatures": false
+    }
+  }
