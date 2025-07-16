@@ -1,3 +1,5 @@
-# Root Index
+# Documentation for BC-Docs
 
-Help documentation for root
+This is the documentation for the vscode extensioon BC-Docs
+
+![BC-Docs logo](../docs/media/logo.png)
