@@ -28,8 +28,8 @@ function GetPDFCoverPage() : string
 function GetPDFTableOfContents() : string
 {
     var PdfValue = "";
-    const CreteTableOfContents = vscode.workspace.getConfiguration('myhrer-bc-docs').CreteTableOfContents;
-    if (CreteTableOfContents === true)
+    const CreateTableOfContents = vscode.workspace.getConfiguration('myhrer-bc-docs').CreateTableOfContents;
+    if (CreateTableOfContents === true)
     {
         PdfValue += "\t\t\t\t\"pdfTocPage\": true,\n";
     }
@@ -43,12 +43,12 @@ function GetPDFHeaderTemplate(docFolder: string) : string
     const CreatePdfHeaderTemplateText = vscode.workspace.getConfiguration('myhrer-bc-docs').CreatePdfHeaderTemplateText;
    const FolderPDFSettings = CreateFolder(docFolder,PDFSettingsFolder);
     let TemplateFile = CreateFullFilename(FolderPDFSettings, CreatePdfHeaderTemplateText);
-    const Headertemplate = ReadExistingTocFile(TemplateFile);
+    const HeaderTemplate = ReadExistingTocFile(TemplateFile);
 
-    if ((CreatePdfHeader === true) && (Headertemplate !== ''))
+    if ((CreatePdfHeader === true) && (HeaderTemplate !== ''))
     {
         
-        PdfValue +=    "\t\t\t\t\"pdfHeaderTemplate\": " + Headertemplate + ",\n";
+        PdfValue +=    "\t\t\t\t\"pdfHeaderTemplate\": " + HeaderTemplate + ",\n";
       
     }
     return PdfValue;
@@ -62,12 +62,12 @@ function GetPDFFooterTemplate(docFolder: string) : string
     const CreatePdfFooterTemplateText = vscode.workspace.getConfiguration('myhrer-bc-docs').CreatePdfFooterTemplateText;
     const FolderPDFSettings = CreateFolder(docFolder,PDFSettingsFolder);
     let TemplateFile = CreateFullFilename(FolderPDFSettings, CreatePdfFooterTemplateText);
-    const Headertemplate = ReadExistingTocFile(TemplateFile);
+    const HeaderTemplate = ReadExistingTocFile(TemplateFile);
 
-    if ((CreatePdfFooter === true) && (Headertemplate !== ''))
+    if ((CreatePdfFooter === true) && (HeaderTemplate !== ''))
     {
         
-        PdfValue +=    "\t\t\t\t\"pdfFooterTemplate\": " + Headertemplate + ",\n";      
+        PdfValue +=    "\t\t\t\t\"pdfFooterTemplate\": " + HeaderTemplate + ",\n";      
     }
     return PdfValue;
 }
@@ -102,7 +102,7 @@ export function CreateFooterAndHeaderTemplates(folder : string,CreatePdfFooterHe
             const folderPdfSettings = CreateFolder(folder,PDFSettingsFolder);
             const PdfFooterHeaderFile = CreateFullFilename(folderPdfSettings, CreatePdfFooterHeaderTemplateText);
             writefile(PdfFooterHeaderFile, PageFooterHeaderData);
-            vscode.window.showInformationMessage(`Created or overwrited the ${PdfFooterHeaderFile} file.`);
+            vscode.window.showInformationMessage(`Created or overwrites the ${PdfFooterHeaderFile} file.`);
         }
         else
         {
@@ -121,14 +121,14 @@ export function SetupAndCreateCoverPage() {
     if ((CreatePDFCoverPage === true) && (CoverPageFileName !== ''))
     {
     const folderDocs = CreateFolder(folder,'docs');
-    const CoverpageFile = CreateFullFilename(folderDocs, CoverPageFileName);
-    const CoverpageData = GetPDFCoverPageData();
-    writefile(CoverpageFile, CoverpageData);
-        vscode.window.showInformationMessage(`Created or overwrited the ${CoverpageFile} file.`);
+    const CoverPageFile = CreateFullFilename(folderDocs, CoverPageFileName);
+    const CoverPageData = GetPDFCoverPageData();
+    writefile(CoverPageFile, CoverPageData);
+        vscode.window.showInformationMessage(`Created or overwrites the ${CoverPageFile} file.`);
     }
     else
     {
-        vscode.window.showInformationMessage('PDF Coverpage is not turned on or the Cover page filename is empty in the settings. Please check the settings for PDF Cover Page');
+        vscode.window.showInformationMessage('PDF cover page is not turned on or the cover page filename is empty in the settings. Please check the settings for PDF cover page');
     }
 }
 

@@ -1,0 +1,1 @@
+"<div style="width: 100%; font-size: 12px;"><div style="text-align: center; padding: 0 2em"<p>BC Docs sample page footer</p><span class="pageNumber"></span> / <span class="totalPages"></span></div></div>"

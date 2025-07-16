@@ -4,7 +4,7 @@
   "publisher": "Myhrernet",
   "description": "This extension makes the life as a documentation writer more easy. this extension adds functions to setup and create and update DocFX files.",
   "icon": "images/logoMP.png",
-  "version": "0.9.3",
+  "version": "0.9.5",
   "engines": {
     "vscode": "^1.101.0"
   },
@@ -12,7 +12,7 @@
     "Other"
   ],
   "activationEvents": [],
-    "repository": {
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/fmyhrerNo/BC-Docs.git"
   },
@@ -46,6 +46,10 @@
       {
         "command": "myhrer-bc-docs.MYH-SetupAndCreatePDFHeaderAndFooter",
         "title": "MYH: Create PDF header and footer"
+      },
+      {
+        "command": "myhrer-bc-docs.MYH-CopyLogoFilesFromTemplate",
+        "title": "MYH: Copy logo files from template"
       }
     ],
     "menus": {
@@ -55,11 +59,11 @@
           "alt": "myhrer-bc-docs.MYH-CreateAndUpdateAllDocFX-files",
           "group": "1_modification"
         },
-                {
+        {
           "command": "myhrer-bc-docs.MYH-CreateAndUpdateDocFxTocAndIndexFiles",
           "alt": "myhrer-bc-docs.MYH-CreateAndUpdateDocFxTocAndIndexFiles",
           "group": "1_modification"
-        }        
+        }
       ],
       "editor/context": [
         {
@@ -94,7 +98,7 @@
           "default": "_site",
           "description": "The name of the outputfolder for DocFX to write files to"
         },
-        "myhrer-bc-docs.CreteTableOfContents": {
+        "myhrer-bc-docs.CreateTableOfContents": {
           "type": "boolean",
           "default": false,
           "description": "Create table of contents in beginning of the PDF document."
@@ -138,11 +142,20 @@
           "type": "string",
           "default": "PDF Settings",
           "description": "Folder Containing setup files for PDF converting."
+        },
+        "myhrer-bc-docs.RightCornerLogoSVG": {
+          "type": "string",
+          "default": "",
+          "description": "File and path name for the image to copy from."
+        },
+        "myhrer-bc-docs.PDFCoverImagePNG": {
+          "type": "string",
+          "default": "",
+          "description": "File and path name for the image to copy from."
         }
       }
     }
   },
-
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
@@ -152,14 +165,17 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.101.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
+    "@types/vscode": "^1.101.0",
     "@typescript-eslint/eslint-plugin": "^8.31.1",
     "@typescript-eslint/parser": "^8.31.1",
-    "eslint": "^9.25.1",
-    "typescript": "^5.8.3",
     "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.5.2"
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.25.1",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "node-fetch": "^2.7.0"
   }
 }

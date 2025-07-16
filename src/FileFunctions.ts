@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import { CreateMainTocFile } from './TocFunctions';
 import { CreateDocFXFileFULL } from './DocFXjson';
-import { CreatePNGLogo, CreateSVGLogo } from './Logo';
+import { CopyOrCreateDefaultLogos} from './Logo';
 
 export function GetActiveFilename() : string {
 	const editor = vscode.window.activeTextEditor;
@@ -116,8 +116,7 @@ export function InitRepositoryForDocFX() {
         //writefile(FooterFile,'');
         CreateMainIndexFile(folderDocs);
         CreateMainTocFile(folderDocs);
-        CreateSVGLogo(folderDocs);	
-        CreatePNGLogo(folderDocs);	
+        CopyOrCreateDefaultLogos();	
         CreateDocFXFileFULL(folderDocs); 
 }
 

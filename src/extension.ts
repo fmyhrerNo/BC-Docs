@@ -11,6 +11,7 @@ import { CreateFooterAndHeaderTemplates, GetDemoPDFPageFooterData, GetDemoPDFPag
 import { CreateMainTocFile, CreateTocFile, UpdateTocAndIndexFiles } from './TocFunctions';
 import { CreateDocFXFileFULL, CreateDoxFxJson } from './DocFXjson';
 import { CreateGithubWorkFlow} from './Github';
+import { CopyOrCreateDefaultLogos } from './Logo';
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -54,6 +55,11 @@ export function activate(context: vscode.ExtensionContext) {
 	const disposable8 = vscode.commands.registerCommand('myhrer-bc-docs.MYH-CreateApiDocumentation', () => {
 		const filename = CreateAPIDocumentation();
 		vscode.window.showInformationMessage('Created API Documentation for ' + filename);
+	});
+
+	const disposable9 = vscode.commands.registerCommand('myhrer-bc-docs.MYH-CopyLogoFilesFromTemplate', () => {
+		CopyOrCreateDefaultLogos();
+		vscode.window.showInformationMessage('Copied logos from templates');
 	});
 
 	context.subscriptions.push(disposable);
