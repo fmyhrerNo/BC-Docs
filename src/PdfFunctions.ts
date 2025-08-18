@@ -83,16 +83,38 @@ function CreatePDFHeaderFooter(folder : string)
 
         if ((CreatePdfHeader === true) && (CreatePdfHeaderTemplateText !== ''))
         {	
-            const DemoData = GetDemoPDFPageHeaderData();	
-            CreateFooterAndHeaderTemplates(folderDocs,CreatePdfHeader,CreatePdfHeaderTemplateText, PDFSettingsFolder,DemoData);	
+            const PDFHeaderFileTemplate = vscode.workspace.getConfiguration('myhrer-bc-docs').PDFHeaderFileTemplate;
+            if (PDFHeaderFileTemplate !== '')
+            {
+                const folderPdfSettings = CreateFolder(folder,PDFSettingsFolder);
+                let PdfFooterHeaderFile = CreateFullFilename(folderPdfSettings, CreatePdfHeaderTemplateText);
+                CopyPDFHeaderTemplate(PDFHeaderFileTemplate,PdfFooterHeaderFile);
+            }
+            else 
+            {
+                const DemoData = GetDemoPDFPageHeaderData();	
+                CreateFooterAndHeaderTemplates(folderDocs,CreatePdfHeader,CreatePdfHeaderTemplateText, PDFSettingsFolder,DemoData);	
+            }
         }
 
         
         if ((CreatePdfFooter === true) && (CreatePdfFooterTemplateText !== ''))
         {
-            const DemoData = GetDemoPDFPageFooterData();	
-            CreateFooterAndHeaderTemplates(folderDocs,CreatePdfFooter,CreatePdfFooterTemplateText, PDFSettingsFolder,DemoData);	
+            const PDFFooterFileTemplate = vscode.workspace.getConfiguration('myhrer-bc-docs').PDFFooterFileTemplate;
+            if (PDFFooterFileTemplate !== '')
+            {
+                const folderPdfSettings = CreateFolder(folder,PDFSettingsFolder);
+                const PdfFooterHeaderFile = CreateFullFilename(folderPdfSettings, CreatePdfFooterTemplateText);
+                CopyPDFHeaderTemplate(PDFFooterFileTemplate,PdfFooterHeaderFile);
+                //copy the file from template
+            }
+            else 
+            {
+                const DemoData = GetDemoPDFPageFooterData();	
+                CreateFooterAndHeaderTemplates(folderDocs,CreatePdfFooter,CreatePdfFooterTemplateText, PDFSettingsFolder,DemoData);	  
+            }
         }
+
 }
 
 export function CreateFooterAndHeaderTemplates(folder : string,CreatePdfFooterHeader : boolean, CreatePdfFooterHeaderTemplateText :string, PDFSettingsFolder :string, PageFooterHeaderData : string)
@@ -155,6 +177,16 @@ export function SetupAndCreatePDFHeaderAndFooter() {
 			const DemoData = GetDemoPDFPageFooterData();	
 			CreateFooterAndHeaderTemplates(folderDocs,CreatePdfFooter,CreatePdfFooterTemplateText, PDFSettingsFolder,DemoData);	
 		}
+}
+
+function CopyPDFHeaderTemplate(CopyFromTemplate : string, CopyToTemplate : string) {
+const fs = require('fs');
+
+    fs.copyFile(CopyToTemplate, CopyFromTemplate, (err: any) => {
+      if (err) {
+        // Handle the error
+      }
+    });
 }
 
 function GetPDFValue(): string {

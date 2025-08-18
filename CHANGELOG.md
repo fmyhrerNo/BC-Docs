@@ -1,6 +1,9 @@
 # Change Log
 
 All notable changes to the "BC Docs" extension will be documented in this file.
+
+## [0.9.7] - 2025-08-18
+Bugfixes for copy template files.
 ## [0.9.6] - 2025-07-16
 - added new funtion MYH: Copy logo files from template this copies files from a local file from the settings.
 - Logo filename are now without extension so please remove the file extension .svg.

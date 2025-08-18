@@ -2,5 +2,6 @@ pdfFileName: Initialize.pdf
 items:
 - name: Initialize
   href: index.md
-
+- name: Logo
+  href: logo.md
 pdfFileName: Initialize.pdf

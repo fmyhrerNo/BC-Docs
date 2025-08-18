@@ -54,14 +54,14 @@ export function CopyOrCreateDefaultLogos() {
 
 function CreateSVGLogo(folderDocs : string) {
     const Mediafolder = vscode.workspace.getConfiguration('myhrer-bc-docs').MediaFolder;
-    const RightCornerLogoSVG = vscode.workspace.getConfiguration('myhrer-bc-docs').RightCornerLogoSVG;
+    const LeftCornerLogoSVG = vscode.workspace.getConfiguration('myhrer-bc-docs').LeftCornerLogoSVG;
     const LogoFileName = vscode.workspace.getConfiguration('myhrer-bc-docs').LogoFileName;
     const folderMedia = CreateFolder(folderDocs, Mediafolder);
     const FullLogoFileName = CreateFullFilename(folderMedia, LogoFileName + '.svg');
     const LogoData = GetLogoData();
-    if (RightCornerLogoSVG !== '')
+    if (LeftCornerLogoSVG !== '')
     {
-        CopyRightCornerLogo(folderDocs);
+        CopyLeftCornerLogo(folderDocs);
     }
     else {
         writefile(FullLogoFileName,LogoData);
@@ -79,7 +79,7 @@ function CreatePNGLogo(folderDocs : string) {
     const FullLogoFileName = CreateFullFilename(folderMedia, LogoFileName + '.png');
     if (PDFCoverImagePNG !== '')
     {
-      CopyRightCornerLogo(folderDocs);
+      CopyPdfLogo(folderDocs);
     }
     else {
       const LogoData = GetPNGLogoData();
@@ -121,17 +121,17 @@ function saveBase64Image(base64Str: string, outputPath: string): void {
   console.log(`Image saved to ${outputPath}`);
 }
 
-function CopyRightCornerLogo(folderDocs : string) {
+function CopyLeftCornerLogo(folderDocs : string) {
 const fs = require('fs');
 const fetch = require('node-fetch');
 
     const Mediafolder = vscode.workspace.getConfiguration('myhrer-bc-docs').MediaFolder;
-    const RightCornerLogoSVG = vscode.workspace.getConfiguration('myhrer-bc-docs').RightCornerLogoSVG;
+    const LeftCornerLogoSVG = vscode.workspace.getConfiguration('myhrer-bc-docs').LeftCornerLogoSVG;
      const LogoFileName = vscode.workspace.getConfiguration('myhrer-bc-docs').LogoFileName;
     const folderMedia = CreateFolder(folderDocs, Mediafolder);
     const FullLogoFileName = CreateFullFilename(folderMedia, LogoFileName + '.svg');
 
-    fs.copyFile(RightCornerLogoSVG, FullLogoFileName, (err: any) => {
+    fs.copyFile(LeftCornerLogoSVG, FullLogoFileName, (err: any) => {
       if (err) {
         // Handle the error
       }
@@ -142,12 +142,12 @@ function CopyPdfLogo(folderDocs : string) {
 const fs = require('fs');
 
     const Mediafolder = vscode.workspace.getConfiguration('myhrer-bc-docs').MediaFolder;
-    const RightCornerLogoSVG = vscode.workspace.getConfiguration('myhrer-bc-docs').RightCornerLogoSVG;
+    const PDFCoverImagePNG = vscode.workspace.getConfiguration('myhrer-bc-docs').PDFCoverImagePNG;
      const LogoFileName = vscode.workspace.getConfiguration('myhrer-bc-docs').LogoFileName;
     const folderMedia = CreateFolder(folderDocs, Mediafolder);
     const FullLogoFileName = CreateFullFilename(folderMedia, LogoFileName + '.png');
 
-    fs.copyFile(RightCornerLogoSVG, FullLogoFileName, (err: any) => {
+    fs.copyFile(PDFCoverImagePNG, FullLogoFileName, (err: any) => {
       if (err) {
         // Handle the error
       }

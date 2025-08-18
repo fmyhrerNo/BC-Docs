@@ -2,7 +2,7 @@
   "name": "myhrer-bc-docs",
   "displayName": "MYH BC Docs",
   "publisher": "Myhrernet",
-  "description": "This extension makes the life as a documentation writer more easy. this extension adds functions to setup and create and update DocFX files.",
+  "description": "This extension makes the life as a documentation writer easier. this extension adds functions to setup and create and update DocFX files.",
   "icon": "images/logoMP.png",
   "version": "0.9.6",
   "engines": {
@@ -143,7 +143,7 @@
           "default": "PDF Settings",
           "description": "Folder Containing setup files for PDF converting."
         },
-        "myhrer-bc-docs.RightCornerLogoSVG": {
+        "myhrer-bc-docs.LeftCornerLogoSVG": {                                                                        
           "type": "string",
           "default": "",
           "description": "File and path name for the image to copy from."
@@ -157,6 +157,16 @@
           "type": "string",
           "default": "",
           "description": "File and path name for the ico file to copy from."
+        },
+        "myhrer-bc-docs.PDFHeaderFileTemplate": {
+          "type": "string",
+          "default": "",
+          "description": "File and path name for the template file to copy from."
+        },
+        "myhrer-bc-docs.PDFFooterFileTemplate": {
+          "type": "string",
+          "default": "",
+          "description": "File and path name for the template file to copy from."
         }
       }
     }
